@@ -127,7 +127,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.bba409b760211c0a8851986f4820d67e;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
             this.ClientSize = new System.Drawing.Size(863, 353);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
