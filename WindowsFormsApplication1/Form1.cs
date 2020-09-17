@@ -65,11 +65,11 @@ namespace WindowsFormsApplication1
         {
             if (comboBox1.SelectedIndex == 0)
             {
-                MessageBox.Show("vscode.ru");
+                MessageBox.Show("0");
             }
             if (comboBox1.SelectedIndex == 1)
             {
-                MessageBox.Show("Уроки программирования");
+                MessageBox.Show("1");
             }
         }
 
