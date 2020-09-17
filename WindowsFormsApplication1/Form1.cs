@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Windows.Forms;
 
@@ -41,19 +43,14 @@ namespace WindowsFormsApplication1
             table = new DataTable();
             sqlDataAdapter.Fill(table);
             dataGridView1.DataSource = table;
+            //запрет на добавление и удаление строк
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            //выделение всей строки 
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Identefication". При необходимости она может быть перемещена или удалена.
             this.identeficationTableAdapter.Fill(this.wMF300DataSet.Identefication);
             //добавлены элементы для combobox
-            comboBox1.Items.Add("Физическое_Лицо");
-            comboBox1.Items.Add("Личный_Состав");
-            comboBox1.Items.Add("Удостоверение_Служащего");
-            comboBox1.Items.Add("Профессия");
-            comboBox1.Items.Add("Штаб");
-            comboBox1.Items.Add("Военная_База");
-            comboBox1.Items.Add("Военная_Часть");
-            comboBox1.Items.Add("Военная_Техника");
-            comboBox1.Items.Add("Модель_Техники");
-            comboBox1.Items.Add("Название_Техники"); 
         }
 
         private void identeficationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -68,26 +65,90 @@ namespace WindowsFormsApplication1
         {
             if (comboBox1.SelectedIndex == 0)
             {
-                table.Clear();
+                table.Columns.Clear();
+                table.Rows.Clear();
 
                 sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
-
                 sqlDataAdapter.Fill(table);
-                dataGridView1.DataSource = table;
-
-
-
             }
             if (comboBox1.SelectedIndex == 1)
             {
-                table.Clear();
+                table.Columns.Clear();
+                table.Rows.Clear();
+
                 sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Personnel", SqlConnection);
-
                 sqlDataAdapter.Fill(table);
-                dataGridView1.DataSource = table;
-
             }
-        }
+            if (comboBox1.SelectedIndex == 2)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Identefication", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 3)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Profession", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 4)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Staff", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 5)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Base", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 6)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Unit", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 7)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Tech", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 8)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Tech_Model", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
+            if (comboBox1.SelectedIndex == 9)
+            {
+                table.Columns.Clear();
+                table.Rows.Clear();
+
+                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Technic_Name", SqlConnection);
+                sqlDataAdapter.Fill(table);
+            }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Columns.Clear();
+        }
+    }
 }

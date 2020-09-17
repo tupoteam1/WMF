@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.wMF300DataSet = new WindowsFormsApplication1.WMF300DataSet();
             this.identeficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.identeficationTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.IdenteficationTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.WMF300DataSetTableAdapters.TableAdapterManager();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,15 +51,6 @@
             this.button1.Text = "Авторы";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(249, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "Физическое_лицо";
             // 
             // wMF300DataSet
             // 
@@ -92,6 +83,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 32);
             this.dataGridView1.Name = "dataGridView1";
@@ -106,6 +99,28 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Удалить ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Физическое_Лицо",
+            "Личный_Состав",
+            "Удостоверение_Служащего",
+            "Профессия",
+            "Штаб",
+            "Военная_База",
+            "Военная_Часть",
+            "Военная_Техника",
+            "Модель_Технники ",
+            "Название_Техники"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(258, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Text = "Физическое_Лицо";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -113,12 +128,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(863, 353);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
+            this.MaximumSize = new System.Drawing.Size(879, 391);
+            this.MinimumSize = new System.Drawing.Size(879, 391);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "WMF Database";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).EndInit();
@@ -130,13 +148,13 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private WMF300DataSet wMF300DataSet;
         private System.Windows.Forms.BindingSource identeficationBindingSource;
         private WMF300DataSetTableAdapters.IdenteficationTableAdapter identeficationTableAdapter;
         private WMF300DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
