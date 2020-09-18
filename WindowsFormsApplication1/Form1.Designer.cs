@@ -83,6 +83,17 @@ namespace WindowsFormsApplication1
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Физическое_Лицо",
+            "Личный_Состав",
+            "Удостоверение_Личности",
+            "Профессия",
+            "Штаб",
+            "Военная_База",
+            "Военная_Часть",
+            "Военная_Техника",
+            "Модель_Техники",
+            "Название_Техники"});
             this.comboBox1.Location = new System.Drawing.Point(0, 28);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(249, 21);

@@ -40,33 +40,16 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Personnel". При необходимости она может быть перемещена или удалена.
-            this.personnelTableAdapter.Fill(this.wMF300DataSet.Personnel);
-            //строка подключения к базе данных 
-            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\Desktop\ДЩЫВ\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;Connect Timeout=30;");
-            //все строки их таблицы Physcial_Person 
+            this.personnelTableAdapter.Fill(this.wMF300DataSet.Personnel); 
+            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\Desktop\jjj\WMF300.mdf;Integrated Security=True;Connect Timeout=30;");
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
             table = new DataTable();
             sqlDataAdapter.Fill(table);
             dataGridView1.DataSource = table;
-            //запрет на добавление и удаление строк 
             dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            //выделение всей строки 
+            dataGridView1.AllowUserToDeleteRows = false; 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Identefication". При необходимости она может быть перемещена или удалена. 
             this.identeficationTableAdapter.Fill(this.wMF300DataSet.Identefication);
-            //добавлены элементы для combobox 
-            comboBox1.Items.Add("Физическое_Лицо");
-            comboBox1.Items.Add("Личный_Состав");
-            comboBox1.Items.Add("Удостоверенние_служащего");
-            comboBox1.Items.Add("Профессия");
-            comboBox1.Items.Add("Штаб");
-            comboBox1.Items.Add("Военная_База");
-            comboBox1.Items.Add("Военная_Часть");
-            comboBox1.Items.Add("Военная_Техника");
-            comboBox1.Items.Add("Модель_Техники");
-            comboBox1.Items.Add("Название_Техники");
         }
 
         private void identeficationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -188,7 +171,7 @@ namespace WindowsFormsApplication1
         {
             using (SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\TrueXz\Desktop\ДЩЫВ\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf; Integrated Security = True; Connect Timeout = 30;"))
             {
-                this.Physical_PersonTableAdapter.Update(this.WMF300DataSet);
+                
             }
         }
     }
