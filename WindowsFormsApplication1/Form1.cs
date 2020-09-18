@@ -1,4 +1,5 @@
-﻿using System;
+﻿using com.sun.xml.@internal.bind.v2.model.core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,20 +15,19 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        DataSet ds;
+
         private SqlConnection SqlConnection = null;
 
-        private SqlCommandBuilder SqlBuilder = null;
+        SqlDataAdapter sqlDataAdapter;
 
-        private SqlDataAdapter sqlDataAdapter = null;
+        SqlCommandBuilder commandBuilder;
 
         private DataTable table = null;
 
         public Form1()
         {
             InitializeComponent();
-            // Добавил запрет на ручное добавление новых строк
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.AllowUserToAddRows = false;
         }
         // Открытие второй формы поверх первой
         private void button1_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
             // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Personnel". При необходимости она может быть перемещена или удалена.
             this.personnelTableAdapter.Fill(this.wMF300DataSet.Personnel);
             //строка подключения к базе данных 
-            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\Desktop\ДЩЫВ\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;");
+            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\Desktop\ДЩЫВ\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;Connect Timeout=30;");
             //все строки их таблицы Physcial_Person 
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
             table = new DataTable();
@@ -160,6 +160,7 @@ namespace WindowsFormsApplication1
 
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
         }
@@ -167,6 +168,12 @@ namespace WindowsFormsApplication1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+                DataRow row = ds.Tables[0].NewRow(); // добавляем новую строку в DataTable
+                ds.Tables[0].Rows.Add(row);
         }
     }
 }

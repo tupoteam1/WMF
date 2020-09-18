@@ -54,12 +54,12 @@ namespace WindowsFormsApplication1
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.identeficationBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.fKPersonnelIdenteficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personnelTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.PersonnelTableAdapter();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.identityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKPersonnelIdenteficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personnelTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.PersonnelTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingNavigator)).BeginInit();
@@ -94,6 +94,7 @@ namespace WindowsFormsApplication1
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // wMF300DataSet
             // 
@@ -206,6 +207,7 @@ namespace WindowsFormsApplication1
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -258,19 +260,10 @@ namespace WindowsFormsApplication1
             this.identityIDDataGridViewTextBoxColumn,
             this.unitNumDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.fKPersonnelIdenteficationBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(461, 152);
+            this.dataGridView1.Location = new System.Drawing.Point(336, 103);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(442, 186);
+            this.dataGridView1.Size = new System.Drawing.Size(540, 221);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // fKPersonnelIdenteficationBindingSource
-            // 
-            this.fKPersonnelIdenteficationBindingSource.DataMember = "FK_Personnel_Identefication";
-            this.fKPersonnelIdenteficationBindingSource.DataSource = this.identeficationBindingSource;
-            // 
-            // personnelTableAdapter
-            // 
-            this.personnelTableAdapter.ClearBeforeFill = true;
             // 
             // employeeIDDataGridViewTextBoxColumn
             // 
@@ -295,6 +288,15 @@ namespace WindowsFormsApplication1
             this.unitNumDataGridViewTextBoxColumn.DataPropertyName = "Unit_Num";
             this.unitNumDataGridViewTextBoxColumn.HeaderText = "Unit_Num";
             this.unitNumDataGridViewTextBoxColumn.Name = "unitNumDataGridViewTextBoxColumn";
+            // 
+            // fKPersonnelIdenteficationBindingSource
+            // 
+            this.fKPersonnelIdenteficationBindingSource.DataMember = "FK_Personnel_Identefication";
+            this.fKPersonnelIdenteficationBindingSource.DataSource = this.identeficationBindingSource;
+            // 
+            // personnelTableAdapter
+            // 
+            this.personnelTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
