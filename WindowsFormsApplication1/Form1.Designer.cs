@@ -37,6 +37,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -86,16 +89,17 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 53);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 288);
             this.dataGridView1.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(754, 208);
+            this.button2.Image = global::WindowsFormsApplication1.Properties.Resources.turbocrest;
+            this.button2.Location = new System.Drawing.Point(754, 164);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 34);
+            this.button2.Size = new System.Drawing.Size(112, 36);
             this.button2.TabIndex = 3;
             this.button2.Text = "Удалить ";
             this.button2.UseVisualStyleBackColor = true;
@@ -115,12 +119,42 @@
             "Военная_Техника",
             "Модель_Технники ",
             "Название_Техники"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
+            this.comboBox1.Location = new System.Drawing.Point(12, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(258, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "Физическое_Лицо";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(754, 134);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 34);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Добавить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(754, 196);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(112, 33);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Сохранить";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(754, 228);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 36);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Обновить";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -129,6 +163,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
             this.ClientSize = new System.Drawing.Size(863, 353);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
@@ -156,6 +193,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

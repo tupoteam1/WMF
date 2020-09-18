@@ -135,6 +135,7 @@
   <ItemGroup>
     <None Include="Resources\bba409b760211c0a8851986f4820d67e.jpg" />
     <None Include="Resources\ios_large_1496760541_image.jpg" />
+    <None Include="Resources\turbocrest.png" />
     <Content Include="WMF300.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

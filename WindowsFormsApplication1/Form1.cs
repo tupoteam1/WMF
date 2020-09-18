@@ -38,14 +38,20 @@ namespace WindowsFormsApplication1
             //строка подключения к базе данных
             SqlConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\ZyxoR\source\repos\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
             SqlConnection.Open();
+
             //все строки их таблицы Physcial_Person
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
+
             table = new DataTable();
+
             sqlDataAdapter.Fill(table);
+
             dataGridView1.DataSource = table;
+
             //запрет на добавление и удаление строк
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+
             //выделение всей строки 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Identefication". При необходимости она может быть перемещена или удалена.
@@ -148,7 +154,25 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            table.Rows.Add();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
