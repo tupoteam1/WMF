@@ -25,6 +25,8 @@ namespace WindowsFormsApplication1
 
         private DataTable table = null;
 
+        DataFromBase dataFromBase = new DataFromBase();
+
         public Form1()
         {
             InitializeComponent();
@@ -171,9 +173,13 @@ namespace WindowsFormsApplication1
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {
-                DataRow row = ds.Tables[0].NewRow(); // добавляем новую строку в DataTable
-                ds.Tables[0].Rows.Add(row);
+        {            
+            DataRow row = ds.Tables[0].NewRow(); // добавляем новую строку в DataTable
+            ds.Tables[0].Rows.Add(row);
         }
+    }
+
+    class DataFromBase
+    {
     }
 }
