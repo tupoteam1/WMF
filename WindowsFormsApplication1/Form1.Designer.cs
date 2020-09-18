@@ -1,4 +1,7 @@
-﻿namespace WindowsFormsApplication1
+﻿using System;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
 {
     partial class Form1
     {
@@ -50,21 +53,24 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.identeficationBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.identeficationDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fKPersonnelIdenteficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personnelTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.PersonnelTableAdapter();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.identityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingNavigator)).BeginInit();
             this.identeficationBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.identeficationDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPersonnelIdenteficationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(834, 412);
+            this.button1.Location = new System.Drawing.Point(1073, 317);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 30);
             this.button1.TabIndex = 0;
@@ -79,13 +85,12 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(249, 21);
             this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "Физическое_лицо";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(838, 51);
+            this.button2.Location = new System.Drawing.Point(1073, 44);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(112, 36);
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -145,7 +150,7 @@
             this.identeficationBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.identeficationBindingNavigator.Name = "identeficationBindingNavigator";
             this.identeficationBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.identeficationBindingNavigator.Size = new System.Drawing.Size(1111, 25);
+            this.identeficationBindingNavigator.Size = new System.Drawing.Size(1183, 25);
             this.identeficationBindingNavigator.TabIndex = 3;
             this.identeficationBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -201,7 +206,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -244,52 +248,62 @@
             this.identeficationBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.identeficationBindingNavigatorSaveItem.Click += new System.EventHandler(this.identeficationBindingNavigatorSaveItem_Click);
             // 
-            // identeficationDataGridView
+            // dataGridView1
             // 
-            this.identeficationDataGridView.AutoGenerateColumns = false;
-            this.identeficationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.identeficationDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.identeficationDataGridView.DataSource = this.identeficationBindingSource;
-            this.identeficationDataGridView.Location = new System.Drawing.Point(319, 103);
-            this.identeficationDataGridView.Name = "identeficationDataGridView";
-            this.identeficationDataGridView.Size = new System.Drawing.Size(388, 220);
-            this.identeficationDataGridView.TabIndex = 4;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.passportDataGridViewTextBoxColumn,
+            this.identityIDDataGridViewTextBoxColumn,
+            this.unitNumDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.fKPersonnelIdenteficationBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(461, 152);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(442, 186);
+            this.dataGridView1.TabIndex = 4;
             // 
-            // dataGridViewTextBoxColumn1
+            // fKPersonnelIdenteficationBindingSource
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Identity_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Identity_ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.fKPersonnelIdenteficationBindingSource.DataMember = "FK_Personnel_Identefication";
+            this.fKPersonnelIdenteficationBindingSource.DataSource = this.identeficationBindingSource;
             // 
-            // dataGridViewTextBoxColumn2
+            // personnelTableAdapter
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Rank";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Rank";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.personnelTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // employeeIDDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Service_Years";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Service_Years";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn4
+            // passportDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Service_Type";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Service_Type";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.passportDataGridViewTextBoxColumn.DataPropertyName = "Passport";
+            this.passportDataGridViewTextBoxColumn.HeaderText = "Passport";
+            this.passportDataGridViewTextBoxColumn.Name = "passportDataGridViewTextBoxColumn";
+            // 
+            // identityIDDataGridViewTextBoxColumn
+            // 
+            this.identityIDDataGridViewTextBoxColumn.DataPropertyName = "Identity_ID";
+            this.identityIDDataGridViewTextBoxColumn.HeaderText = "Identity_ID";
+            this.identityIDDataGridViewTextBoxColumn.Name = "identityIDDataGridViewTextBoxColumn";
+            // 
+            // unitNumDataGridViewTextBoxColumn
+            // 
+            this.unitNumDataGridViewTextBoxColumn.DataPropertyName = "Unit_Num";
+            this.unitNumDataGridViewTextBoxColumn.HeaderText = "Unit_Num";
+            this.unitNumDataGridViewTextBoxColumn.Name = "unitNumDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(1111, 505);
-            this.Controls.Add(this.identeficationDataGridView);
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
+            this.ClientSize = new System.Drawing.Size(1183, 349);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.identeficationBindingNavigator);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
@@ -302,10 +316,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingNavigator)).EndInit();
             this.identeficationBindingNavigator.ResumeLayout(false);
             this.identeficationBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.identeficationDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPersonnelIdenteficationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void identeficationDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -330,11 +350,13 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton identeficationBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView identeficationDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridView dataGridView1;
+        private BindingSource fKPersonnelIdenteficationBindingSource;
+        private WMF300DataSetTableAdapters.PersonnelTableAdapter personnelTableAdapter;
+        private DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passportDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn identityIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn unitNumDataGridViewTextBoxColumn;
     }
 }
 
