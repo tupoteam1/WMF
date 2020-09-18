@@ -15,8 +15,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        DataSet ds;
-
+        DataSet dataset;
+      
         private SqlConnection SqlConnection = null;
 
         SqlDataAdapter sqlDataAdapter;
@@ -163,26 +163,32 @@ namespace WindowsFormsApplication1
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
+      
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {            
-            DataRow row = ds.Tables[0].NewRow(); // добавляем новую строку в DataTable
-            ds.Tables[0].Rows.Add(row);
+        {
+            DataRow row = dataset.Tables[0].NewRow();
+            dataset.Tables[0].Rows.Add(row);
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 dataGridView1.Rows.Remove(row);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\TrueXz\Desktop\ДЩЫВ\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf; Integrated Security = True; Connect Timeout = 30;"))
+            {
+                this.Physical_PersonTableAdapter.Update(this.WMF300DataSet);
             }
         }
     }
