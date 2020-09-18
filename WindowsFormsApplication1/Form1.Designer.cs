@@ -60,6 +60,8 @@ namespace WindowsFormsApplication1
             this.unitNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKPersonnelIdenteficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personnelTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.PersonnelTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingNavigator)).BeginInit();
@@ -88,11 +90,11 @@ namespace WindowsFormsApplication1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1073, 44);
+            this.button2.Location = new System.Drawing.Point(925, 103);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 36);
             this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
+            this.button2.Text = "Добавить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -298,6 +300,25 @@ namespace WindowsFormsApplication1
             // 
             this.personnelTableAdapter.ClearBeforeFill = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(925, 165);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 36);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Удалить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(925, 230);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(112, 36);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Сохранить";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +326,8 @@ namespace WindowsFormsApplication1
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
             this.ClientSize = new System.Drawing.Size(1183, 349);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.identeficationBindingNavigator);
             this.Controls.Add(this.button2);
@@ -359,6 +382,8 @@ namespace WindowsFormsApplication1
         private DataGridViewTextBoxColumn passportDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn identityIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn unitNumDataGridViewTextBoxColumn;
+        private Button button3;
+        private Button button4;
     }
 }
 

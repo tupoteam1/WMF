@@ -177,6 +177,14 @@ namespace WindowsFormsApplication1
             DataRow row = ds.Tables[0].NewRow(); // добавляем новую строку в DataTable
             ds.Tables[0].Rows.Add(row);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
+        }
     }
 
     class DataFromBase
