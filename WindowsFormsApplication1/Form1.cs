@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Windows.Forms;
+using WindowsFormsApplication1.WMF300DataSetTableAdapters;
 
 namespace WindowsFormsApplication1
 {
@@ -16,21 +17,16 @@ namespace WindowsFormsApplication1
     {
         private SqlConnection SqlConnection = null;
 
-        private SqlCommandBuilder sqlBuilder = null;
-
         private SqlDataAdapter sqlDataAdapter = null;
 
-        private DataTable table = null;
+        private SqlCommandBuilder builder = null;
 
+        private DataSet DataSet = null;
+
+        string tname = null;
         public Form1()
         {
             InitializeComponent();
-        }
-        // Открытие второй формы поверх первой
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 newForm1 = new Form2();
-            newForm1.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,15 +34,6 @@ namespace WindowsFormsApplication1
             //строка подключения к базе данных
             SqlConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\ZyxoR\source\repos\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
             SqlConnection.Open();
-
-            //все строки их таблицы Physcial_Person
-            sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
-
-            table = new DataTable();
-
-            sqlDataAdapter.Fill(table);
-
-            dataGridView1.DataSource = table;
 
             //запрет на добавление и удаление строк
             dataGridView1.AllowUserToAddRows = false;
@@ -57,102 +44,114 @@ namespace WindowsFormsApplication1
             // TODO: данная строка кода позволяет загрузить данные в таблицу "wMF300DataSet.Identefication". При необходимости она может быть перемещена или удалена.
             this.identeficationTableAdapter.Fill(this.wMF300DataSet.Identefication);
             //добавлены элементы для combobox
-        }
-
-        private void identeficationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.identeficationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.wMF300DataSet);
-
+            tname = "Physical_Person";
+            LoadData();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == 0)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Physical_Person";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 1)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Personnel", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Personnel";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 2)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Identefication", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Identefication";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 3)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
+                tname = "Profession";
+                LoadData();
 
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Profession", SqlConnection);
-                sqlDataAdapter.Fill(table);
             }
             if (comboBox1.SelectedIndex == 4)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Staff", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Staff";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 5)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Base", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Military_Base";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 6)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Unit", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Military_Unit";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 7)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Military_Tech", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Military_Tech";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 8)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
-
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Tech_Model", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                //sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Tech_Model", SqlConnection);
+                //sqlDataAdapter.Fill(table);
+                tname = "Tech_Model";
+                LoadData();
             }
             if (comboBox1.SelectedIndex == 9)
             {
-                table.Columns.Clear();
-                table.Rows.Clear();
+                //DataSet.Columns.Clear();
+                //DataSet.Rows.Clear();
 
-                sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Technic_Name", SqlConnection);
-                sqlDataAdapter.Fill(table);
+                tname = "Technic_Name";
+                LoadData();
             }
 
         }
 
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            Form2 newForm1 = new Form2();
+            newForm1.Show();
+        }
+
+        private void LoadData()
+        {
+            try
+            {
+               sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tname}", SqlConnection);
+
+                builder = new SqlCommandBuilder(sqlDataAdapter);
+
+                builder.GetInsertCommand();
+                builder.GetUpdateCommand();
+                builder.GetDeleteCommand();
+
+                DataSet = new DataSet();
+
+                sqlDataAdapter.Fill(DataSet, tname);
+
+                dataGridView1.DataSource = DataSet.Tables[tname];
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //sqlDataAdapter.Update(DataSet, tname);
+            DataSet.Tables[tname].Rows.Add();
+        }
+
         private void button2_Click(object sender, EventArgs e)
+        {
+            sqlDataAdapter.Update(DataSet, tname);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -160,19 +159,5 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            table.Rows.Add();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

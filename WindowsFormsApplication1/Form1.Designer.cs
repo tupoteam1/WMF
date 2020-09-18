@@ -29,31 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.wMF300DataSet = new WindowsFormsApplication1.WMF300DataSet();
             this.identeficationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.identeficationTableAdapter = new WindowsFormsApplication1.WMF300DataSetTableAdapters.IdenteficationTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.WMF300DataSetTableAdapters.TableAdapterManager();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(754, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Авторы";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // wMF300DataSet
             // 
@@ -94,17 +86,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(743, 288);
             this.dataGridView1.TabIndex = 2;
             // 
-            // button2
-            // 
-            this.button2.Image = global::WindowsFormsApplication1.Properties.Resources.turbocrest;
-            this.button2.Location = new System.Drawing.Point(754, 164);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 36);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Удалить ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -126,35 +107,56 @@
             this.comboBox1.Text = "Физическое_Лицо";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton12});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(863, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(53, 22);
+            this.toolStripButton12.Text = "Авторы";
+            this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(761, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 41);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(761, 215);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 42);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Сохранить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(754, 134);
+            this.button3.Location = new System.Drawing.Point(761, 154);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 34);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Добавить";
+            this.button3.Size = new System.Drawing.Size(90, 44);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(754, 196);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 33);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Сохранить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(754, 228);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 36);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Обновить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -163,14 +165,16 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(114)))), ((int)(((byte)(157)))));
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ios_large_1496760541_image;
             this.ClientSize = new System.Drawing.Size(863, 353);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(879, 391);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(879, 391);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -179,23 +183,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.wMF300DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.identeficationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private WMF300DataSet wMF300DataSet;
         private System.Windows.Forms.BindingSource identeficationBindingSource;
         private WMF300DataSetTableAdapters.IdenteficationTableAdapter identeficationTableAdapter;
         private WMF300DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
     }
 }
 

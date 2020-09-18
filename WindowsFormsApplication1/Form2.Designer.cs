@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -89,8 +90,13 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(666, 300);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(666, 300);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "WMF Database: Авторы";
             this.ResumeLayout(false);
             this.PerformLayout();
 
