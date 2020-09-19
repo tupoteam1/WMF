@@ -40,8 +40,9 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.personnelTableAdapter.Fill(this.wMF300DataSet.Personnel); 
-            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\Desktop\jjj\WMF300.mdf;Integrated Security=True;Connect Timeout=30;");
+            this.personnelTableAdapter.Fill(this.wMF300DataSet.Personnel);
+            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\TrueXz\source\repos\WindowsFormsApplication1\WindowsFormsApplication1\WMF300.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Physical_Person", SqlConnection);
             table = new DataTable();
             sqlDataAdapter.Fill(table);
@@ -154,7 +155,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            DataRow row = dataset.Tables[0].NewRow();
+            DataRow row = dataset.Tables[0].NewRow(); // добавляем новую строку в DataTable
             dataset.Tables[0].Rows.Add(row);
         }
 
